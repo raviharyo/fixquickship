@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" />
+    <title>Quickship | Contact Us</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="px-4 py-3">
+            <div class="webname">
+                <h1>Quickship</h1>
+            </div>
+            <div class="tabs">
+                <a href="/">Home</a>
+                <a href="services.html">Services</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+            <div id="btn">
+                <!-- <button class="btn btn-md btn-outline-dark text-light px-4 py-2">Sign In</button> -->
+                <input type="text" name="search" id="search" placeholder="Search.." class="form-control">
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Page Content -->
+
+        <div class="jumbotron contactatas pt-4 pb-4">
+            <h1 class="textgede"><b>Contact Us</b></h1>
+
+        </div>
+        <div class="container isi">
+            <div class="row">
+                <div class="col-md-6 kiri">
+                    <p class="mendengar mt-4" style="font-size: x-large;">KAMI INGIN MENDENGAR KABAR DARIMU</p>
+                    <P class="pastikan mt-2" style="font-size: large;">Kami ingin memastikan Anda mendapatkan pelayanan
+                        terbaik dari kami.</P>
+                    <form class="formaja" ng-app="validationApp" ng-controller="mainController" name="userForm" ng-submit="submitForm(userForm.$valid)" method="POST"
+                        novalidate>
+                        <div class="mt-3 mb-3 form-group">
+                            <label for="email" class="form-label">Email address</label>
+                            <input ng-model="user.email" type="email" class="form-control" id="email" name="email"
+                                required="true" aria-describedby="emailHelp">
+                            <small ng-show="userForm.email.$invalid && userForm.email.$touched"
+                                class="help-block text-danger">
+                                E-mail harus diisi
+                            </small>
+                            <div id="emailHelp" class="form-text"></div>
+                        </div>
+                        <div class="mb-3 form-group">
+                            <label for="name" class="form-label">Nama</label>
+                            <input ng-model="user.name" type="text" class="form-control" id="name" name="name"
+                                required="true">
+                            <small ng-show="userForm.name.$invalid && userForm.name.$touched"
+                                class="help-block text-danger">
+                                Nama harus diisi
+                            </small>
+                        </div>
+                        <div class="mb-3 form-group">
+                            <label for="tel" class="form-label">Telephone</label>
+                            <input ng-model="user.tel" type="number" class="form-control" id="tel" name="tel"
+                                required="true">
+                            <small ng-show="userForm.tel.$invalid && userForm.tel.$touched"
+                                class="help-block text-danger">
+                                No. Telephone harus diisi
+                            </small>
+                        </div>
+                        <div class="mb-3 form-group">
+                            <label for="text" class="form-label">Pertanyaan</label>
+                            <textarea ng-model="user.text" name="text" required="true" class="form-control" id="text"
+                                rows="3"></textarea>
+                            <small ng-show="userForm.text.$invalid && userForm.text.$touched"
+                                class="help-block text-danger">
+                                Pertanyaan harus diisi
+                            </small>
+                        </div>
+                        <button id="form-button-save" type="submit"
+                            class="btn btn-primary mb-3 container-fluid">Submit</button>
+                    </form>
+
+                </div>
+                <div class="col-md-1">
+
+                </div>
+                <div class="col-md-5 kanan">
+                    <div class="detailkon rounded-3">
+                        <h5 class="kontak py-4"><b>INFORMASI KONTAK</b></h5>
+
+                        <!-- <p><i class="fas fa-map-marker-alt"></i>&nbsp; ALAMAT</p> -->
+                        <p><img src="./assets/images/pin.png" alt="" width="25">&nbsp; ALAMAT</p>
+                        <p>Jalan Hj Kodja 4 no 3 Kukusan, Depok, Indonesia</p>
+                        <br>
+                        <p><img src="./assets/images/phone.png" alt="" width="15" style="margin-left: 5px;">&nbsp; TELEPON</p>
+                        <p>(021) 836391</p>
+                        <br>
+                        <p><img src="./assets/images/inbox.png" alt="" width="20" style="margin-left: 3px;">&nbsp; E-MAIL</p>
+                        <p>hello@quickship.id</p>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="bg-light">
+        <h2>Quickship</h2>
+        <p>Copyright &copy; 2021 PT. Angkasa Jaya Tbk.</p>
+        <div class="btm-link">
+            <a href="#" class="text-dark">Legal</a>
+            <div class="line bg-secondary"></div>
+            <a href="#" class="text-dark">Privacy Policy</a>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+        crossorigin="anonymous"></script>
+    <script>
+        var validationApp = angular.module('validationApp', []);
+        validationApp.controller('mainController', function ($scope) {
+            $scope.submitForm = function (isValid) {
+                if (isValid) {
+                    alert('Data berhasil disimpan, kami akan menghubungi anda dalam waktu yang dekat.');
+                }
+                else {
+                    alert('Data gagal disimpan, pastikan anda telah mengisi form dengan benar');
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

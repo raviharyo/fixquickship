@@ -1,0 +1,229 @@
+<!-- POPOUT ADD -->
+
+<div class="d-flex justify-content-end py-4">
+    <button class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <span style=" font-size: 15px;">+</span>
+        Input Data Kurir</button>
+</div>
+<!-- Modal -->
+<div class="col-lg-11 modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen position-fixed">
+        <div class="modal-content">
+            <div class="modal-header px-5">
+                <h5 class="modal-title" id="exampleModalLabel">Tambah Transaksi</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <!-- TAMBAH KURIR POPOUT -->
+
+                <div class="col-lg-11 mx-auto">
+                    <form class="user mt-4">
+                        <div class="form-group row">
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <p>Kode Kurir</p>
+                                <input type="text" class="form-control form-control-user" id="kode" required>
+                            </div>
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <p>Nomor SIM C</p>
+                                <input type="text" class="form-control form-control-user" id="simc" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <p>Nama Lengkap</p>
+                                <input type="text" class="form-control form-control-user" id="namal" required>
+                            </div>
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <p>Nama Panggilan</p>
+                                <input type="text" class="form-control form-control-user" id="namap" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <p>No. Handphone 1</p>
+                                <input type="text" class="form-control form-control-user" id="phone1" required>
+                            </div>
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <p>No. Handphone 2</p>
+                                <input type="text" class="form-control form-control-user" id="phone2" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <p>Kota Kelahiran</p>
+                                <input typse="text" class="form-control form-control-user" id="kota" required>
+                            </div>
+                            <div class="col-sm-6">
+                                <p>Tanggal Lahir</p>
+                                <input type="date" class="form-control form-control-user" id="tgl" value="HALU">
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-end mt-3">
+                            <input class="btn btn-outline-info my-4" type="button" value="Tambahkan Kurir"
+                                onclick="save_user();">
+                        </div>
+                        <hr>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- TABEL KURIR -->
+
+<div class="card-footer">
+    <div class="table-responsive table-hover">
+        <table id="tb_datakurir" class="table table-bordered" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <td>#ID</td>
+                    <td>Kode</td>
+                    <td>Nomor SIM C</td>
+                    <td>Nama Lengkap</td>
+                    <td>Nama Panggilan</td>
+                    <td>Nomor HP 1</td>
+                    <td>Nomor HP 2</td>
+                    <td>Kota Kelahiran</td>
+                    <td>Tanggal Kelahiran</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<form class="user mt-4">
+    <div class="form-group row mb-sm-0">
+      <div class="col-md-4 form-floating mb-3">
+        <input type="email" class="form-control" id="uid" readonly placeholder="null">
+        <label class="mx-2 text-body">ID Kurir</label>
+      </div>
+      <div class="col-md-4 form-floating mb-3">
+        <input type="text" class="form-control form-control-user" id="kode" required
+          placeholder="null">
+        <label class="mx-2 text-body" for="pengirim">Kode Kurir</label>
+      </div>
+      <div class="col-md-4 form-floating mb-3 ">
+        <input type="text" class="form-control form-control-user" id="simc" required
+          placeholder="null">
+        <label class="mx-2 text-body" for="pengirim">Nomor SIM C</label>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-7 form-floating mb-3">
+        <input type="text" class="form-control form-control-user" id="namal" required
+          placeholder="null">
+        <label class="mx-2 text-body">Nama Lengkap</label>
+      </div>
+      <div class="col-sm-5 form-floating mb-3 mb-sm-0">
+        <input type="text" class="form-control form-control-user" id="namap" required placeholder="null">
+        <label class="text-body mx-2" for="pengirim">Nama Panggilan</label>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-md-4 form-floating mb-3">
+        <input type="email" class="form-control" id="phone1" required placeholder="null">
+        <label class="mx-2 text-body">No. Handphone 1</label>
+      </div>
+      <div class="col-md-4 form-floating mb-3">
+        <input type="text" class="form-control form-control-user" id="phone2" required
+          placeholder="null">
+        <label class="mx-2 text-body" for="pengirim">No. Handphone 2</label>
+      </div>
+      <div class="col-md-4 form-floating mb-3 ">
+        <input type="text" class="form-control form-control-user" id="kota" required
+          placeholder="null">
+        <label class="mx-2 text-body" for="pengirim">Kota Kelahiran</label>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-md-6 form-floating mb-3">
+        <input type="date" class="form-control" id="tgl" placeholder="null">
+        <label class="mx-2 text-body">Tanggal Lahir</label>
+      </div>
+      <div class="col-md-6 form-floating mb-3">
+        <input type="text" class="form-control form-control-user" id="harga_total" required
+          placeholder="null">
+        <label class="mx-2 text-body" for="pengirim">Total Harga</label>
+      </div>
+    </div>
+    <div class="d-flex justify-content-end">
+      <input class="btn btn-outline-danger mx-2 my-4" type="button" value="Hapus" onclick="delete_user();">
+      <input class="btn btn-outline-success my-4" type="button" value="Update" onclick="update_user();">
+    </div>
+    <hr style="margin-bottom: 20px;">
+  </form>
+
+  <div class="d-flex justify-content-end py-4">
+    <button class="btn btn-outline-info" data-bs-toggle="modal"
+        data-bs-target="#exampleModal">
+        <span style=" font-size: 15px;">+</span>
+        Tambahkan Input Transaksi</button>
+</div>
+<!-- Modal -->
+<div class="col-lg-11 modal fade" id="exampleModal" tabindex="-1"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen position-fixed">
+        <div class="modal-content">
+            <div class="modal-header px-5">
+                <h5 class="modal-title" id="exampleModalLabel">Tambah Transaksi</h5>
+                <button type="button" class="btn-close btn-close-white"
+                    data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <!-- TAMBAH TRANSAKSI POPOUT -->
+
+                <div class="col-lg-11 mx-auto">
+                    <form class="user mt-4">
+                        <div class="form-group row">
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <p>Nama Pengirim</p>
+                                <input type="text"
+                                    class="form-control form-control-user"
+                                    id="input_pengirim" required>
+                            </div>
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <p>Nama Penerima</p>
+                                <input type="text"
+                                    class="form-control form-control-user"
+                                    id="input_penerima" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <p>Tanggal 1</p>
+                                <input type="text"
+                                    class="form-control form-control-user"
+                                    id="input_tanggal1" required>
+                            </div>
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <p>Keterangan 1</p>
+                                <input type="text"
+                                    class="form-control form-control-user"
+                                    id="input_keterangan1" required>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-end mt-3">
+                            <input class="btn btn-outline-warning my-4"
+                                type="button" value="Tambahkan Transaksi"
+                                onclick="add_resi();">
+                        </div>
+                        <hr>
+                    </form>
+                </div>
+            </div>
+
+            <!-- END -->
+
+        </div>
+    </div>
+</div>
+</div>

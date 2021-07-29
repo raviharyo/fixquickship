@@ -1,0 +1,30 @@
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.logo{
+    background-image: linear-gradient(to right, #00308F, #2057c7);
+}
+
+th{
+    font-size: 12px !important;
+}
+
+tbody:hover{
+    cursor: pointer;
+}
+
+tbody:active{
+    background-color: #bbbbbb;
+}
+
+.modal-header{
+    background-image: linear-gradient(to right, #00308F, #2057c7);
+    color: #ffffff;
+}
+
+.navbar-brand{
+    font-weight: bold;
+    font-size: 1.5rem !important;
+}
+

@@ -1,0 +1,314 @@
+<!--
+=========================================================
+* Paper Dashboard 2 - v2.0.1
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/paper-dashboard-2
+* Copyright 2020 Creative Tim (https://www.creative-tim.com)
+
+Coded by www.creative-tim.com
+
+ =========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+-->
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        Quickship | Resi
+    </title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+        name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- CSS Files -->
+    <link href="./assets/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <!-- <link href="./assets/demo/demo.css" rel="stylesheet" /> -->
+    <link rel="stylesheet" href="./assets/custom.css">
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-database.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-analytics.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyAviTkAUPlf0Zv1eFUmtHwi6MYncG3Hrtc",
+            authDomain: "quickship-app.firebaseapp.com",
+            databaseURL: "https://quickship-app-default-rtdb.firebaseio.com",
+            projectId: "quickship-app",
+            storageBucket: "quickship-app.appspot.com",
+            messagingSenderId: "971628074969",
+            appId: "1:971628074969:web:0b629d4b6c9c3157adabc8",
+            measurementId: "G-KH2MTFCPSN"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+        db.settings({ timestapsInSnapshots: true });
+        firebase.analytics();
+    </script>
+</head>
+
+<body class="">
+    <div class="wrapper ">
+        <div class="sidebar" data-color="white" data-active-color="danger">
+            <div class="logo">
+                <div class="webname">
+                    <h2 style="text-align: center; color: #ffffff; margin-top: 20px;">Quickship</h2>
+                </div>
+            </div>
+            <div class="sidebar-wrapper">
+                <ul class="nav">
+                    <li class="">
+                        <a href="dashboard.html">
+                            <i class="fas fa-clipboard"></i>
+                            <p>Dashboard</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="kurir.html">
+                            <i class="fas fa-truck-loading"></i>
+                            <p>Data Kurir</p>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="#">
+                            <i class="fas fa-digital-tachograph"></i>
+                            <p>Data Resi</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-panel" >
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+                <div class="container-fluid">
+                    <div class="navbar-wrapper">
+                        <div class="navbar-toggle">
+                            <button type="button" class="navbar-toggler">
+                                <span class="navbar-toggler-bar bar1"></span>
+                                <span class="navbar-toggler-bar bar2"></span>
+                                <span class="navbar-toggler-bar bar3"></span>
+                            </button>
+                        </div>
+                        <a class="navbar-brand text-dark">Data Resi</a>
+                    </div>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+                        aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-bar navbar-kebab"></span>
+                        <span class="navbar-toggler-bar navbar-kebab"></span>
+                        <span class="navbar-toggler-bar navbar-kebab"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                        <form>
+                            <div class="input-group no-border">
+                                <input type="text" value="" class="form-control" id="searchbar" placeholder="Search...">
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <i class="nc-icon nc-zoom-split"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <ul class="navbar-nav">
+                            <li class="nav-item btn-rotate dropdown">
+                                <a class="nav-link dropdown-toggle" href="http://example.com"
+                                    id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
+                                    <i class="nc-icon nc-bell-55"></i>
+                                    <p>
+                                        <span class="d-lg-none d-md-block">Some Actions</span>
+                                    </p>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="index.html">Logout</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- End Navbar -->
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-lg-12">
+                            <div class="card card-stats">
+                                <div class="col-lg-12 mx-auto px-3" id="transdata">
+
+                                    <!-- UPDATE DELETE DATA -->
+
+                                    <h3 class="card-title pt-4">Data Resi</h3>
+
+                                    <form class="user mt-4">
+                                        <div class="form-group row">
+                                            <div class="col-sm-4 mb-3 mb-sm-0">
+                                                <p>No. Resi</p>
+                                                <input type="text" class="form-control form-control-user" id="no_resi"
+                                                    required readonly>
+                                            </div>
+                                            <div class="col-sm-4 mb-3 mb-sm-0">
+                                                <p>Nama Pengirim</p>
+                                                <input type="text" class="form-control form-control-user" id="pengirim"
+                                                    required>
+                                            </div>
+                                            <div class="col-sm-4 mb-3 mb-sm-0">
+                                                <p>Nama Penerima</p>
+                                                <input type="text" class="form-control form-control-user" id="penerima"
+                                                    required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row mt-3">
+                                            <div class="col-sm-7 mb-3 mb-sm-0">
+                                                <p>Alamat</p>
+                                                <input type="text" class="form-control form-control-user"
+                                                    id="alamat">
+                                            </div>
+                                            <div class="col-sm-5 mb-3 mb-sm-0">
+                                                <p>Kode Pos</p>
+                                                <input type="text" class="form-control form-control-user"
+                                                    id="kodepos">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-5 mb-3 mb-sm-0">
+                                                <p>Tanggal 1</p>
+                                                <input type="text" class="form-control form-control-user" id="tanggal1"
+                                                    placeholder="Tidak perlu diisi" readonly>
+                                            </div>
+                                            <div class="col-sm-7 mb-3 mb-sm-0">
+                                                <p>Keterangan 1</p>
+                                                <input type="text" class="form-control form-control-user"
+                                                    id="keterangan1" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row mt-3">
+                                            <p>*Tanggal dan Keterangan 2 sampai seterusnya di input oleh kurir</p>
+                                            <div class="col-sm-5 mb-3 mb-sm-0">
+                                                <p>Tanggal 2</p>
+                                                <input type="text" class="form-control form-control-user"
+                                                    id="waktu2" readonly>
+                                            </div>
+                                            <div class="col-sm-7 mb-3 mb-sm-0">
+                                                <p>Keterangan 2</p>
+                                                <input type="text" class="form-control form-control-user"
+                                                    id="keterangan2" readonly>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                    <div class="d-flex justify-content-end">
+                                        <input class="btn btn-outline-danger mx-2 my-4" type="button" value="Hapus"
+                                            onclick="delete_resi();">
+                                        <input class="btn btn-outline-success my-4" type="button" value="Update"
+                                            onclick="edit_resi();">
+                                    </div>
+                                    <hr style="margin-bottom: 20px;">
+                                </div>
+
+                                <!-- END -->
+
+                                <div class="card-body d-flex justify-content-between">
+                                    <h3 class="card-title">List Resi</h3>
+                                </div>
+                                <div class="card-footer">
+                                    <hr>
+                                    <div class="table-responsive table-hover">
+                                        <table class="table" id="tb_data">
+                                            <thead>
+                                                <tr class="text-justify">
+                                                    <th scope="col">No. Resi</th>
+                                                    <th scope="col">Alamat</th>
+                                                    <th scope="col">Kode Pos</th>
+                                                    <th scope="col">Nama Pengirim</th>
+                                                    <th scope="col">Nama Penerima</th>
+                                                    <th scope="col">No. HP Penerima</th>
+                                                    <th scope="col">Waktu 1</th>
+                                                    <th scope="col">Keterangan 1</th>
+                                                    <th scope="col">Waktu 2</th>
+                                                    <th scope="col">Keterangan 2</th>
+                                                    <th scope="col">Waktu 3</th>
+                                                    <th scope="col">Keterangan 3</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- Full screen modal -->
+                                    <!-- Button trigger modal -->
+                                    <div class="d-flex justify-content-end py-4">
+                                        <button class="btn btn-outline-info" data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal">
+                                            <span style=" font-size: 15px;">+</span>
+                                            Tambahkan Input Transaksi</button>
+                                    </div>
+                                    <!-- Modal -->
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="footer" style="position: absolute; width: -webkit-fill-available;">
+                <div class="container-fluid">
+                    <div class="d-flex justify-content-between">
+                        <div class="">
+                            <ul>
+                                <li><a href="https://www.creative-tim.com" target="_blank">Creative Tim</a></li>
+                                <li><a href="https://www.creative-tim.com/blog" target="_blank">Blog</a></li>
+                                <li><a href="https://www.creative-tim.com/license" target="_blank">Licenses</a></li>
+                            </ul>
+                        </div>
+                        <div class="credits ml-auto">
+                            <span style="font-weight: bold; font-size: 17px;">
+                                &copy;2021 Quickship
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="firebase_resi.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+    <!--   Core JS Files   -->
+    <script src="./assets/js/core/jquery.min.js"></script>
+    <script src="./assets/js/core/popper.min.js"></script>
+    <script src="./assets/js/core/bootstrap.min.js"></script>
+    <script src="./assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+    <!--  Google Maps Plugin    -->
+    <!-- Chart JS -->
+    <script src="./assets/js/plugins/chartjs.min.js"></script>
+    <!--  Notifications Plugin    -->
+    <script src="./assets/js/plugins/bootstrap-notify.js"></script>
+    <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="./assets/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script>
+</body>
+
+</html>

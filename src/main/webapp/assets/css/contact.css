@@ -1,0 +1,43 @@
+    @import url(../css/main.css);
+
+    .kiri{
+    margin-top: 5vh;
+    }
+
+    .kanan{
+        margin-top: 7vh;
+    }
+    
+    .detailkon{
+        padding-left: 2vw;
+    }
+
+    .detailkon p{
+        line-height: 10px;
+    }
+    
+    .contactatas{
+        text-align: center;
+        background-image: url('/assets/images/bg-22.png');
+        /* background-size:0%; */
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: #f3f3f3;
+        
+    }
+    .detailkon{
+        background-color: #f1f1f1 ;
+        padding-top: 3vh;
+        padding-bottom: 4vh;
+    }
+    
+    .textgede{
+        padding-top: 8vh;
+        padding-bottom: 8vh;
+        color: #2e1a79;
+        font-style: none;
+    }
+
+    footer{
+        margin-top: 10%;
+    }

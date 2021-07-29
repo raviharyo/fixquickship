@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./assets/css/main.css">
+  <link rel="stylesheet" href="./assets/css/animation.css">
+  <title>Quickship</title>
+  <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-analytics.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+      apiKey: "AIzaSyAviTkAUPlf0Zv1eFUmtHwi6MYncG3Hrtc",
+      authDomain: "quickship-app.firebaseapp.com",
+      databaseURL: "https://quickship-app-default-rtdb.firebaseio.com",
+      projectId: "quickship-app",
+      storageBucket: "quickship-app.appspot.com",
+      messagingSenderId: "971628074969",
+      appId: "1:971628074969:web:0b629d4b6c9c3157adabc8",
+      measurementId: "G-KH2MTFCPSN"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+    db.settings({ timestapsInSnapshots: true });
+    db.settings({ ignoreUndefinedProperties: true });
+    firebase.analytics();
+  </script>
+</head>
+
+<body>
+  <header>
+    <nav class="px-4 py-3">
+      <div class="webname">
+        <h1>Quickship</h1>
+      </div>
+      <div class="tabs">
+        <a href="#">Home</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+      <div id="btn">
+        <!-- <button class="btn btn-md btn-outline-dark text-light px-4 py-2">Sign In</button> -->
+        <input type="text" name="search" id="search" placeholder="Search.." class="form-control">
+      </div>
+    </nav>
+    <div id="jumbotron" class="row p-5 align-items-center justify-content-around">
+      <div id="jumbo-img" class="col-lg-7">
+        <img src="assets/images/plane.png" alt="">
+      </div>
+      <div id="jumbo-text" class="col-lg-5">
+        <h1>Deliver Your Package</h1>
+        <h3>Safely, Quickly, Trusted</h3>
+      </div>
+    </div>
+  </header>
+
+  <main class="my-5">
+
+    <div class="center">
+      <p class="h1">Cek Lokasi Paketmu yuk!</p>
+      <p>Masukkan 10 digit nomor resi dan klik lacak untuk melihat posisinya.</p>
+      <div class="col-sm-6 d-flex mx-auto my-5">
+        <input id="noresi" type="text" class="form-control" placeholder="No. resi" aria-describedby="basic-addon1" autocomplete="off">
+        <button onclick="resiFunction();" type="submit" class="col-lg-2 btn btn-outline-primary mx-2"
+          id="searchBtn">Lacak</button>
+      </div>
+
+    </div>
+
+    <p class="mt-3 text-center col-10 mx-auto" id="hasil"></p>
+
+    <div class="animasi">
+      <div class="hero">
+        <div class="highway">
+
+        </div>
+        <div class="city">
+
+        </div>
+        <div class="car">
+          <img src="./assets/images/car.png">
+        </div>
+        <div class="wheel">
+          <img src="./assets/images/wheel.png" class="back-wheel">
+          <img src="./assets/images/wheel.png" class="front-wheel">
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <div class="partners mt-5">
+    <p class="text-center" style="font-size: x-large;"><b>Our Partners</b></p>
+    <div class="row brands">
+      <img src="https://www.freepnglogos.com/uploads/logo-tokopedia-png/tokopedia-baju-polos-toko-baju-winstar-8.png"
+        alt="">
+      <img src="https://febridwicahya.files.wordpress.com/2020/04/logo-halodoc-png-e1588148073766.png" alt="">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Logo_dana_blue.svg/1200px-Logo_dana_blue.svg.png"
+        alt="">
+      <img src="https://www.freepnglogos.com/uploads/vans-logo-png/vans-of-the-wall-logo-png-car-symbol-5.png" alt="">
+    </div>
+  </div>
+  <footer class="bg-light">
+    <h2>Quickship</h2>
+    <p>Copyright &copy; 2021 Pt. Angkasa Jaya Tbk.</p>
+    <div class="btm-link">
+      <a href="#" class="text-dark">Legal</a>
+      <div class="line bg-secondary"></div>
+      <a href="#" class="text-dark">Privacy Policy</a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+    crossorigin="anonymous"></script>
+
+  <script>
+    var input = document.getElementById('noresi');
+    input.addEventListener("keyup", function (event) {
+      if (event.keyCode === 13) {
+        event.preventDefault();
+        document.getElementById("searchBtn").click();
+      }
+    });
+    async function resiFunction() {
+      var r = document.getElementById("noresi").value;
+      var hasil = document.getElementById("hasil");
+      if (r.length == 10) {
+        await db.collection('resi').doc(r).get().then((snapshot) => {
+            var data = snapshot.data();
+            if (snapshot.exists){
+              hasil.innerHTML = 
+              `<div class='col-lg-8 mx-auto data'>
+                  <p>No. Resi: <b>${r}</b></p>
+                  <table class="col-lg-6 table table-borderless table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">Waktu</th>
+                        <th scope="col">Keterangan</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">${data.waktu1}</th>
+                        <td>${data.keterangan1}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">${data.waktu2}</th>
+                        <td>${data.keterangan2}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">${data.waktu3}</th>
+                        <td>${data.keterangan3}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>`
+            } else {
+              hasil.innerHTML = "Nomor resi tidak terdeteksi"
+            }
+        })
+      }
+      else if (r.length == 0) {
+        hasil.innerHTML = "Masukkan nomor resi!"
+      }
+      else if (r.length != 10) {
+        hasil.innerHTML = "Nomor resi tidak valid"
+      }
+      var r = document.getElementById("noresi").value = '';
+    }
+
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+@import url('../css/main.css');
+
+.servisatas{
+    display: flex !important;
+    justify-content: center !important;
+}
+
+#services-List img{
+    /* width: 80%; */
+    margin: auto;
+}
